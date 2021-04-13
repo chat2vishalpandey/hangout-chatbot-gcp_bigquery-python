@@ -1,7 +1,8 @@
 from flask import Flask, request
-
+from main import SalesBotPOC
 app = Flask(__name__)
 
+bot = SalesBotPOC()
 
 @app.route('/')
 def home():
@@ -17,7 +18,7 @@ def webhook():
     if query_result.get('action') == 'action.customer.information':
         customer_code = str(query_result.get('parameters').get('customer-number'))
         print(customer_code)
-        fulfillmentText = f"You have provide customer code {customer_code}"
+        fulfillmentText = bot.check_customer_detail(customer_code)
     return {
         "fulfillmentText": fulfillmentText,
         "source": "webhookdata"
