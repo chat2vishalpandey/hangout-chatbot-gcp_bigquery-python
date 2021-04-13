@@ -6,19 +6,51 @@ dialogflow = DialogflowService()
 customer_info = {
     '100': {
         'name': "Amit",
-        'address': "ABC"
+        'address': "Mumbai"
     },
     '101': {
         'name': "Kunal",
-        'address': "DFR"
+        'address': "Chennai"
     },
     '102': {
         'name': "Babul",
-        'address': "GTR"
+        'address': "New delhi"
     },
     '103': {
         'name': "Vikas",
-        'address': "SDT"
+        'address': "Shimla"
+    },
+    '104': {
+        'name': "Kripal",
+        'address': "Gurgaon"
+    },
+    '105': {
+        'name': "Chrish",
+        'address': "New Delhi"
+    },
+    '106': {
+        'name': "Anamika",
+        'address': "Jaipur"
+    },
+    '107': {
+        'name': "Ridhima",
+        'address': "Newyork"
+    },
+    '108': {
+        'name': "Kavitha",
+        'address': "Bengaluru"
+    },
+    '109': {
+        'name': "Harshit",
+        'address': "Noida"
+    },
+    '110': {
+        'name': "Piyush",
+        'address': "Lucknow"
+    },
+    '111': {
+        'name': "Akanksha",
+        'address': "Pune"
     },
 }
 

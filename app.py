@@ -13,7 +13,6 @@ def home():
 def webhook():
     req = request.get_json(silent=True, force=True)
     fulfillmentText = ''
-    sum = 0
     query_result = req.get('queryResult')
     if query_result.get('action') == 'action.customer.information':
         customer_code = str(query_result.get('parameters').get('customer-number'))
