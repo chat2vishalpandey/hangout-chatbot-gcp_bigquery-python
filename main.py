@@ -34,16 +34,10 @@ class SalesBotPOC():
 
     def check_customer_detail(self, customer_code):
         customer_number = customer_code.split(".")[0]
-        print("**************************************************************************")
-        print(customer_code)
-        print(customer_number)
-        print(customer_number in customer_info)
-        print("**************************************************************************")
         if customer_number in customer_info:
-            return "Here is your customer info :-"
+            return f"Here is your customer info :- Name: {customer_info.get(customer_number).get('name')}, Address: {customer_info.get(customer_number).get('address')}"
         else:
             return "Customer info not present"
-
 
 # bot = SalesBotPOC()
 # while True:
@@ -59,6 +53,6 @@ class SalesBotPOC():
 #         if customer_number != "":
 #             customer_number = customer_number.split(".")[0]
 #             if customer_number in customer_info:
-#                 print("Here is your customer info :-")
+#                 print(f"Here is your customer info :- Name: {customer_info.get(customer_number).get('name')}, Address: {customer_info.get(customer_number).get('address')}")
 #             else:
 #                 print("Customer info not present")
