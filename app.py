@@ -1,8 +1,8 @@
 from flask import Flask, request
-from main import SalesBotPOC
+from SQLServerConn import cursor
+
 app = Flask(__name__)
 
-bot = SalesBotPOC()
 
 @app.route('/')
 def home():
@@ -12,12 +12,15 @@ def home():
 @app.route('/webhook/', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-    fulfillmentText = ''
+    fulfillmentText = 'Customer info not present'
     query_result = req.get('queryResult')
     if query_result.get('action') == 'action.customer.information':
         customer_code = str(query_result.get('parameters').get('customer-number'))
         print(customer_code)
-        fulfillmentText = bot.check_customer_detail(customer_code)
+        cursor.execute(f'SELECT * FROM CustomerInfo_Dialogflow where CustomerCode = {customer_code}')
+        row = cursor.fetchone()
+        if row:
+            fulfillmentText = row
     return {
         "fulfillmentText": fulfillmentText,
         "source": "webhookdata"
